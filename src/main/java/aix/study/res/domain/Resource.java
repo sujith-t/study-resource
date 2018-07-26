@@ -6,8 +6,7 @@ import aix.study.res.model.ResourceType;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.Set;
 
 /**
  * @author Sujith T
@@ -24,7 +23,7 @@ public class Resource implements Domain {
     protected Date updatedDate;
     protected ResourceType resourceType;
     protected String urlKey;
-    protected List<String> tags;
+    protected Set<String> tags;
     
     /**
      * Returns Id
@@ -147,9 +146,9 @@ public class Resource implements Domain {
     /**
      * Return Tags
      * 
-     * @return List<String>
+     * @return Set<String>
      */    
-    public List<String> getTags() {
+    public Set<String> getTags() {
         return this.tags;
     }
     
@@ -158,7 +157,7 @@ public class Resource implements Domain {
      * 
      * @param tags
      */     
-    public void setTags(List<String> tags) {
+    public void setTags(Set<String> tags) {
         this.tags = tags;
     }    
     

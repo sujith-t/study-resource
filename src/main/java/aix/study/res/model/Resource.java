@@ -2,7 +2,7 @@
 package aix.study.res.model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
@@ -35,7 +35,7 @@ public class Resource implements Model {
     private String urlKey;    
     
     @Indexed
-    private List<String> tags;
+    private Set<String> tags;
     
     /**
      * Returns Id
@@ -187,9 +187,9 @@ public class Resource implements Model {
     /**
      * Return Tags
      * 
-     * @return List<String>
+     * @return Set<String>
      */    
-    public List<String> getTags() {
+    public Set<String> getTags() {
         return this.tags;
     }
     
@@ -198,7 +198,7 @@ public class Resource implements Model {
      * 
      * @param tags
      */     
-    public void setTags(List<String> tags) {
+    public void setTags(Set<String> tags) {
         this.tags = tags;
     }    
 }

@@ -5,19 +5,20 @@ import aix.study.res.Errors;
 import aix.study.res.domain.Resource;
 import aix.study.res.domain.YouTubeResource;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import aix.study.res.service.ResourceService;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author Sujith T
@@ -95,5 +96,20 @@ public class YouTubeController {
         
         response.put("id", resource.getId());
         return response;
-    }   
+    }
+    
+    /**
+     * Returns A UTube Resource by Embed URL
+     * 
+     * @param url
+     * 
+     * @return Optional<YouTubeResource>
+     */
+    @CrossOrigin(origins = "https://orix.study.com:8443")
+    @RequestMapping(value="/resource/utube", method=GET, params="url")
+    public Optional<YouTubeResource> getResourceByUrl(@RequestParam(value="url") String url) {
+        
+        YouTubeResource obj = this.service.getYouTubeByUrl(url);
+        return Optional.ofNullable(obj);
+    }     
 }

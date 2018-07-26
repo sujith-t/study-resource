@@ -191,6 +191,13 @@ public class ResourceServiceImpl implements ResourceService {
         return null;
     }
 
+    /**
+     * Returns a YouTube Resource By Author
+     * 
+     * @param author
+     * 
+     * @return List<aix.study.res.domain.Resource>
+     */    
     @Override
     public List<aix.study.res.domain.Resource> getResourcesByAuthor(String author) {
         List<aix.study.res.domain.Resource> list = new ArrayList<>();
@@ -216,5 +223,31 @@ public class ResourceServiceImpl implements ResourceService {
         });
         
         return list;
+    }
+
+    /**
+     * Returns a YouTube Resource By url
+     * 
+     * @param url
+     * 
+     * @return aix.study.res.domain.YouTubeResource
+     */     
+    @Override
+    public YouTubeResource getYouTubeByUrl(String url) {
+        
+        List<YouTube> list = this.utubeDao.findByUrl(url);
+        if(list.size() > 0) {
+            YouTube ut = list.get(0);
+            Optional<Resource> opt = this.resourceDao.findById(ut.getId());
+            
+            try {
+                YouTubeResource ytr = (YouTubeResource)this.builder.toDomain(opt.get(), YouTubeResource.class);
+                ytr = (YouTubeResource)this.builder.toDomain(ut, ytr);
+                
+                return ytr;
+            } catch(NoSuchElementException e) {}
+        }
+
+        return null;        
     }
 }

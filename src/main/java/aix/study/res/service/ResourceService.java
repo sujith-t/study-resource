@@ -24,4 +24,6 @@ public interface ResourceService {
     public List<Resource> getResourcesByAuthor(String author);
     
     public Resource getResourceByUrlKey(String key);
+    
+    public YouTubeResource getYouTubeByUrl(String url);
 }
