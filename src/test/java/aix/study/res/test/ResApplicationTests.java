@@ -1,4 +1,4 @@
-package aix.study.res;
+package aix.study.res.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

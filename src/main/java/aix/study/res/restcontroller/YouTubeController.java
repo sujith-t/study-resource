@@ -2,7 +2,6 @@
 package aix.study.res.restcontroller;
 
 import aix.study.res.Errors;
-import aix.study.res.domain.Resource;
 import aix.study.res.domain.YouTubeResource;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +13,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import aix.study.res.service.ResourceService;
-import java.util.List;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;

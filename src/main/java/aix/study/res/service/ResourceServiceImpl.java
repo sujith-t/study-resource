@@ -33,6 +33,11 @@ public class ResourceServiceImpl implements ResourceService {
     private final YouTubeDao utubeDao;
     private final ObjectBuilder builder;
     
+    /**
+     * Constructor
+     * @param resourceDao
+     * @param utubeDao
+     */
     @Autowired
     public ResourceServiceImpl(ResourceDao resourceDao, YouTubeDao utubeDao) {
         this.resourceDao = resourceDao;
